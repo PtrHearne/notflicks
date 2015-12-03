@@ -53,4 +53,18 @@ public class UserTest
         assertNotEquals(homer, bart);
     }
 
+    @Test
+    public void testToString() throws Exception {
+
+    }
+
+    @Test
+    public void testHashCode() throws Exception {
+
+    }
+
+    @Test
+    public void testEquals1() throws Exception {
+
+    }
 }

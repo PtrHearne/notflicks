@@ -12,9 +12,11 @@ import models.Movie;
 import models.Rating;
 
 
+import java.util.List;
+
 import static models.Fixtures.users;
 import static models.Fixtures.movies;
-import static models.Fixtures.ratings;
+//import static models.Fixtures.ratings;
 /**
  * Created by peter hearne on 11/22/2015.
  */
@@ -34,10 +36,10 @@ public class NotflicksAPITest {
         {
            notflicks.addMovie(movie.title,movie.year,movie.url);
         }
-        for (Rating rating:ratings)
-        {
-            notflicks.addRating(rating.userId,rating.movieId,rating.score);
-        }
+     //   for (Rating rating:ratings)
+       // {
+         //   notflicks.addRating(rating.userId,rating.movieId,rating.score);
+       // }
     }
 
     @After
@@ -98,15 +100,24 @@ public class NotflicksAPITest {
     @Test
     public void testRating()
     {
+        //assertNotNull(notflicks.getRatings().size());
+       // assertNotNull(notflicks.getUserRatings().size());
+
+      // assertEquals(users.ratings.length, notflicks.getRatings().size());
+//        assertEquals(ratings.length, notflicks.getUserRatings().size());
+       //Rating rating = notflicks.createRating(users[0].id, movies[1].id, 9);
+
+//        assertEquals(ratings.length+1,notflicks.getRatings().size());
+
+       // User marge = new User("marge",  "simpson", "female", "55","wife","marge@simpson.com");
+       User marge = notflicks.addUser("marge",  "simpson", "female", "55","wife","marge@simpson.com");
+        //System
+        Rating Qrating = notflicks.createRating(marge.id, movies[1].id, 9);
+
         assertNotNull(notflicks.getRatings().size());
         assertNotNull(notflicks.getUserRatings().size());
-        assertEquals(ratings.length, notflicks.getRatings().size());
-//        assertEquals(ratings.length, notflicks.getUserRatings().size());
-        Rating rating = notflicks.addRating(users[0].id,movies[1].id, 9);
-        assertEquals(ratings.length+1,notflicks.getRatings().size());
-
-
-
+        List<Rating> list = marge.getRatings();
+        assertTrue(list.contains(Qrating));
 
     }
 

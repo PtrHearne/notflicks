@@ -9,20 +9,20 @@ import utils.ToJsonString;
  * Created by peter hearne on 11/22/2015.
  */
 public class Rating {
-    static Long counter = 0l;
-    public Long id;
+  //  static Long counter = 0l;
+  //  public Long id;
     public int score;
-    public Long userId;
+   //public Long userId;
     public Long movieId;
 
     public Rating()
     {}
 
-    public Rating( Long userId, Long movieId,int score) {
-        this.id = counter++;
+    public Rating(Long movieId,int score) {
+       // this.id = counter++;
         this.score = score;
       //  this.userId = userId;
-        //this.movieId = movieId;
+        this.movieId = movieId;
     }
 
     @Override
@@ -30,11 +30,12 @@ public class Rating {
     {
         return new ToJsonString(getClass(), this).toString();
     }
-    @Override
+/*   @Override
     public int hashCode()
     {
-        return Objects.hashCode(this.id,this.userId,this.movieId ,this.score);
+       return Objects.hashCode(this.id,this.userId,this.movieId ,this.score);
     }
+    */
     @Override
     public boolean equals(final Object obj)
     {
@@ -42,7 +43,7 @@ public class Rating {
         {
             final Rating other = (Rating) obj;
             return Objects.equal(score, other.score)
-                    && Objects.equal(userId, other.userId)
+                  //  && Objects.equal(userId, other.userId)
                     && Objects.equal(movieId, other.movieId);
         }
         else

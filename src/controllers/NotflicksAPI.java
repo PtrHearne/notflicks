@@ -1,5 +1,6 @@
 package controllers;
 
+import com.google.common.base.Optional;
 import models.Movie;
 import models.Rating;
 import models.User;
@@ -100,12 +101,31 @@ public class NotflicksAPI {
         movieIndex.get(movie);
         return movie;
     }
-
+/*
     public Rating addRating(Long userId,Long movieId,int score){
         Rating rating = new Rating(userId,movieId,score);
         ratingIndex.put(rating.id,rating);
-        userRating.put (rating.userId,rating);
+       // userRating.put (rating.userId,rating);
       return rating;
     }
+*/
+    public Rating createRating(Long id, Long movieId, int score)
+    {
+      Rating rating = new Rating (movieId,score);
+      //  Rating rating = null;
+        Optional<User> user = Optional.fromNullable(userIndex.get(id));
+        if(user.isPresent()) {
+            userIndex.get(id).getRatings().add(rating);
+            System.out.println(score);
+        }
+
+        return rating;
+    }
+
+  //  public Rating getRating (Rating rating)
+   // {
+        //userRating.get(id);
+    //    return userRating.get(rating);
+   // }
 
 }

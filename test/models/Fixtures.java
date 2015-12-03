@@ -26,15 +26,6 @@ public class Fixtures
                 new Movie("movieFive", "2014", "URL")
         };
 
-    public static Rating[] ratings =
 
-            {
-                    new Rating(users[0].id,movies[1].id, 9),
-                    new Rating(users[1].id,movies[1].id, 9),
-                    new Rating(users[2].id,movies[1].id, 9),
-                    new Rating(users[3].id,movies[1].id, 9),
-                    new Rating(users[2].id,movies[2].id, 8),
-                    new Rating(users[3].id,movies[3].id, 9),
-            };
 
 }

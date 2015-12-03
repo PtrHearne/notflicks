@@ -6,7 +6,9 @@ import com.google.common.base.Objects;
 import utils.ToJsonString;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by peter hearne on 11/22/2015.
@@ -32,6 +34,14 @@ public class User {
         this.age = age;
         this.occupation = occupation;
         this.email = email;
+    }
+   /* public Collections <ratings> getRatings(){
+
+        return ratings.values();
+    }
+    */
+    public List<Rating> getRatings(){
+        return ratings;
     }
 
     public String toString() {
